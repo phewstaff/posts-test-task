@@ -4,7 +4,9 @@ import createSagaMiddleware from "redux-saga";
 
 // Import your reducers
 // import postsReducer from "./reducers/posts";
-const saga = createSagaMiddleware();
+
+export const saga = createSagaMiddleware();
+const middleware = [saga];
 
 const rootReducer = combineReducers({
   posts: postsSlice.reducer,
@@ -13,7 +15,8 @@ const rootReducer = combineReducers({
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
-    middleware: [saga],
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(middleware),
   });
 };
 

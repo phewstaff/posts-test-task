@@ -1,13 +1,18 @@
 import axios from "axios";
 import { call, put, takeEvery } from "redux-saga/effects";
-import { fetchPostsSuccess } from "../reduxStore/reducers/posts";
+import { IPost, fetchPostsSuccess } from "../reduxStore/reducers/posts";
 
 function* workGetPostsFetch(): Generator<any, void, any> {
-  const cats = yield call(() =>
-    axios("https://jsonplaceholder.typicode.com/posts")
+  const posts = yield call(() =>
+    axios.get<IPost[]>("https://jsonplaceholder.typicode.com/posts")
   );
+  const formattedPosts = yield posts.data;
+
+  yield put(fetchPostsSuccess(formattedPosts));
 }
 
 function* postsSaga() {
-  yield takeEvery("posts/getPostsFetch", workGetPostsFetch);
+  yield takeEvery("posts/fetchPostsStart", workGetPostsFetch);
 }
+
+export default postsSaga;

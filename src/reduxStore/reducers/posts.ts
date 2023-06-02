@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface Post {
+export interface IPost {
   id: number;
   title: string;
   text: string;
 }
 
 interface PostsState {
-  data: Post[];
+  data: IPost[];
   loading: boolean;
   error: string | null;
 }
@@ -27,7 +27,7 @@ export const postsSlice = createSlice({
       state.error = null;
     },
 
-    fetchPostsSuccess(state, action: PayloadAction<Post[]>) {
+    fetchPostsSuccess(state, action: PayloadAction<IPost[]>) {
       state.data = action.payload;
       state.loading = false;
       state.error = null;
