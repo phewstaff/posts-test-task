@@ -1,9 +1,15 @@
-import React, { FC } from "react";
+import { FC } from "react";
+import Layout from "../components/layout/Layout";
+import Posts from "../components/ui/Posts";
 
-type Props = {};
-
-const PostsPage: FC = (props: Props) => {
-  return <div>PostsPage</div>;
+const PostsPage: FC = () => {
+  return (
+    <>
+      <Layout>
+        <Posts />
+      </Layout>
+    </>
+  );
 };
 
 export default PostsPage;

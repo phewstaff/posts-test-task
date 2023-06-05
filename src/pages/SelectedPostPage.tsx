@@ -1,8 +1,6 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
-type Props = {};
-
-const SelectedPostPage: FC = (props: Props) => {
+const SelectedPostPage: FC = () => {
   return <div>SelectedPostPage</div>;
 };
 

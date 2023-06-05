@@ -1,8 +1,6 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
-type Props = {};
-
-const AboutMePage: FC = (props: Props) => {
+const AboutMePage: FC = () => {
   return <div>AboutMePage</div>;
 };
 
