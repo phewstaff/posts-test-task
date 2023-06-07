@@ -12,7 +12,7 @@ function* workGetPostsFetch(): Generator<
   );
   const formattedPosts: IPost[] = response.data;
 
-  yield delay(1500); // Fake delay of 1 second
+  yield delay(1500); // Fake delay of 1.5 second
 
   yield put(fetchPostsSuccess(formattedPosts));
 }

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import "./App.scss";
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./components/AppRouter";
-import { useAppDispatch, useAppSelector } from "./hooks/redux";
+import { useAppDispatch } from "./hooks/redux";
 import { fetchPostsStart } from "./reduxStore/reducers/posts";
 
 function App() {
