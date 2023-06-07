@@ -7,7 +7,6 @@ import { useAppDispatch, useAppSelector } from "./hooks/redux";
 import { fetchPostsStart } from "./reduxStore/reducers/posts";
 
 function App() {
-  const posts = useAppSelector((state) => state.posts.data);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

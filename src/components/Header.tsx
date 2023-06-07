@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Offcanvas, Navbar, Nav, Container } from "react-bootstrap";
 
 const OffcanvasNavbar = () => {
-  const [showNavbar, setShowNavbar] = useState(true);
+  const [showNavbar, setShowNavbar] = useState(false);
 
   const handleNavbarToggle = () => {
     setShowNavbar(!showNavbar);
@@ -10,19 +10,20 @@ const OffcanvasNavbar = () => {
 
   return (
     <>
-      <Nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <Nav className="navbar bg-body-tertiary">
         <Container>
           <button
             onClick={handleNavbarToggle}
             className="navbar-toggler"
             type="button"
             data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
+            data-bs-target="/offcanvasNavbar"
             aria-controls="offcanvasNavbar"
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <Offcanvas
             show={showNavbar}
             onHide={handleNavbarToggle}
@@ -31,12 +32,11 @@ const OffcanvasNavbar = () => {
             <Offcanvas.Header closeButton>
               <Offcanvas.Title>Offcanvas Navbar</Offcanvas.Title>
             </Offcanvas.Header>
+
             <Offcanvas.Body>
               <Navbar>
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#about">About</Nav.Link>
-                <Nav.Link href="#services">Services</Nav.Link>
-                <Nav.Link href="#contact">Contact</Nav.Link>
+                <Nav.Link href="/posts">Home</Nav.Link>
+                <Nav.Link href="/about-me">About</Nav.Link>
               </Navbar>
             </Offcanvas.Body>
           </Offcanvas>

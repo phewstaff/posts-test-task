@@ -13,7 +13,7 @@ interface PostsState {
 }
 
 const initialState: PostsState = {
-  data: [{ id: 1, title: "something", text: "post text" }],
+  data: [],
   loading: false,
   error: null,
 };
