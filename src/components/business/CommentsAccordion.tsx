@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Comment from "./Comment";
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+
 import { Accordion, Spinner } from "react-bootstrap";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { fetchCommentsStart } from "../../reduxStore/reducers/comments";
+import Comment from "../ui/Comment";
 
 const useFetchComments = (postId: number, shouldFetch: boolean) => {
   const dispatch = useAppDispatch();
@@ -35,6 +36,7 @@ const CommentsAccordion = ({ postId }: { postId: number }) => {
           Comments
         </Accordion.Header>
         <Accordion.Body>
+          {commentsError && <>Произошла ошибка загрузки комментариев</>}
           {commentsLoading && <Spinner />}
           {comments && comments.map((comment) => <Comment key={comment.id} />)}
         </Accordion.Body>

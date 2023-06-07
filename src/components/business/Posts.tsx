@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Container, Spinner } from "react-bootstrap";
-import PostCard from "./ui/PostCard";
-import { useAppSelector } from "../hooks/redux";
+import PostCard from "../ui/PostCard";
+import { useAppSelector } from "../../hooks/redux";
 
 type Props = {};
 

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Layout from "../components/layout/Layout";
-import Posts from "../components/Posts";
+import Posts from "../components/business/Posts";
 
 const PostsPage: FC = () => {
   return (

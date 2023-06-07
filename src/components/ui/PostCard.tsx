@@ -3,7 +3,7 @@ import { Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Comment from "./Comment";
-import CommentsAccordion from "./Accordion";
+import CommentsAccordion from "../business/CommentsAccordion";
 
 type Props = {};
 
