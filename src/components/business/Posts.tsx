@@ -14,7 +14,7 @@ const Posts: FC = (props: Props) => {
       {loading && <Spinner></Spinner>}
       {posts &&
         posts.map((item) => {
-          return <PostCard key={item.id} />;
+          return <PostCard postId={item.id} key={item.id} />;
         })}
     </Container>
   );

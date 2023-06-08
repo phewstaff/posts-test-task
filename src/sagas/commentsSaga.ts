@@ -3,23 +3,23 @@ import { call, put, takeEvery, delay } from "redux-saga/effects";
 import {
   IComment,
   fetchCommentsSuccess,
-} from "../reduxStore/reducers/comments";
+} from "../reduxStore/reducers/commentsSlice";
+import { PayloadAction } from "@reduxjs/toolkit";
 
 function* workGetCommentsFetch(
-  action: any
+  action: PayloadAction<number>
 ): Generator<unknown, void, AxiosResponse<IComment[]>> {
-  const postId = action.payload.postId;
-
+  const postId = action.payload;
   const response: AxiosResponse<IComment[]> = yield call(() =>
     axios.get<IComment[]>(
-      `https://jsonplaceholder.typicode.com/comments?postId=1`
+      `https://jsonplaceholder.typicode.com/comments?postId=${postId}`
     )
   );
   const formattedComments: IComment[] = response.data;
 
   yield delay(1500); // Fake delay of 1.5 seconds
 
-  yield put(fetchCommentsSuccess(formattedComments));
+  yield put(fetchCommentsSuccess({ postId, comments: formattedComments }));
 }
 
 function* commentsSaga() {

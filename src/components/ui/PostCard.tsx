@@ -1,13 +1,12 @@
 import { FC } from "react";
-import { Col, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Comment from "./Comment";
-import CommentsAccordion from "../business/CommentsAccordion";
+import Comments from "../business/Comments";
 
-type Props = {};
+type Props = {
+  postId: number;
+};
 
-const PostCard: FC = (props: Props) => {
+const PostCard = (props: Props) => {
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Body>
@@ -17,7 +16,7 @@ const PostCard: FC = (props: Props) => {
           bulk of the card's content.
         </Card.Text>
       </Card.Body>
-      <CommentsAccordion postId={2} />
+      <Comments postId={props.postId} />
     </Card>
   );
 };

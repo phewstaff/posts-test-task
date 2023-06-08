@@ -8,13 +8,13 @@ export interface IComment {
 }
 
 interface CommentsState {
-  data: IComment[];
+  data: { [postId: number]: IComment[] };
   loading: boolean;
   error: string | null;
 }
 
 const initialState: CommentsState = {
-  data: [],
+  data: {},
   loading: false,
   error: null,
 };
@@ -28,8 +28,12 @@ export const commentsSlice = createSlice({
       state.error = null;
     },
 
-    fetchCommentsSuccess(state, action: PayloadAction<IComment[]>) {
-      state.data = action.payload;
+    fetchCommentsSuccess(
+      state,
+      action: PayloadAction<{ postId: number; comments: IComment[] }>
+    ) {
+      const { postId, comments } = action.payload;
+      state.data[postId] = comments;
       state.loading = false;
       state.error = null;
     },

@@ -1,25 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
+import { useEffect, useState } from "react";
 import { Accordion, Spinner } from "react-bootstrap";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { fetchCommentsStart } from "../../reduxStore/reducers/comments";
+import { fetchCommentsStart } from "../../reduxStore/reducers/commentsSlice";
 import Comment from "../ui/Comment";
 
-const useFetchComments = (postId: number, shouldFetch: boolean) => {
+const useFetchComments = (postId: number, isAccordionOpen: boolean) => {
   const dispatch = useAppDispatch();
-  const comments = useAppSelector((state) => state.comments.data);
+  const comments = useAppSelector((state) => state.comments.data[postId] || []);
 
   useEffect(() => {
-    if (shouldFetch && comments.length === 0) {
+    if (isAccordionOpen && comments.length === 0) {
       dispatch(fetchCommentsStart(postId));
     }
-  }, [dispatch, postId, shouldFetch, comments]);
+  }, [dispatch, postId, isAccordionOpen, comments.length]);
 
   return comments;
 };
 
-const CommentsAccordion = ({ postId }: { postId: number }) => {
+const Comments = ({ postId }: { postId: number }) => {
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
   const comments = useFetchComments(postId, isAccordionOpen);
   const commentsLoading = useAppSelector((state) => state.comments.loading);
@@ -31,18 +29,20 @@ const CommentsAccordion = ({ postId }: { postId: number }) => {
 
   return (
     <Accordion>
-      <Accordion.Item eventKey="0">
+      <Accordion.Item eventKey={`accordion-${postId}`}>
         <Accordion.Header onClick={handleAccordionToggle}>
           Comments
         </Accordion.Header>
         <Accordion.Body>
           {commentsError && <>Произошла ошибка загрузки комментариев</>}
           {commentsLoading && <Spinner />}
-          {comments && comments.map((comment) => <Comment key={comment.id} />)}
+          {comments.map((comment) => (
+            <Comment commentId={comment.id} key={comment.id} />
+          ))}
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
   );
 };
 
-export default CommentsAccordion;
+export default Comments;

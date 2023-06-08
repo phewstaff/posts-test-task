@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { postsSlice } from "./reducers/posts";
+import { postsSlice } from "./reducers/postsSlice";
 import createSagaMiddleware from "redux-saga";
-import { commentsSlice } from "./reducers/comments";
+import { commentsSlice } from "./reducers/commentsSlice";
 
 // Import your reducers
 // import postsReducer from "./reducers/posts";
