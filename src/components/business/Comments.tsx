@@ -37,7 +37,7 @@ const Comments = ({ postId }: { postId: number }) => {
           {commentsError && <>Произошла ошибка загрузки комментариев</>}
           {commentsLoading && <Spinner />}
           {comments.map((comment) => (
-            <Comment commentId={comment.id} key={comment.id} />
+            <Comment comment={comment} key={comment.id} />
           ))}
         </Accordion.Body>
       </Accordion.Item>

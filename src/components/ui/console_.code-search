@@ -1,0 +1,12 @@
+# Query: console.
+# ContextLines: 1
+
+2 results - 2 files
+
+src/components/ui/PostCard.tsx:
+  10  const PostCard = (props: Props) => {
+  12    return (
+
+src/sagas/postsSaga.ts:
+  13    const page = action.payload;
+  15    const response: AxiosResponse<IPost[]> = yield call(() =>

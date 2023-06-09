@@ -3,8 +3,9 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export interface IComment {
   id: number;
   postId: number;
-  text: string;
+  body: string;
   email: string;
+  name: string;
 }
 
 interface CommentsState {

@@ -3,27 +3,28 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export interface IPost {
   id: number;
   title: string;
-  text: string;
+  body: string;
+  postId: number;
 }
 
 interface PostsState {
   data: IPost[];
   loading: boolean;
   error: string | null;
-  totalPostsCount: number | null;
-  totalPagesCount: number | null;
-  limit: number | null;
-  page: number | null;
+  totalPostsCount: number;
+  totalPagesCount: number;
+  limit: number;
+  page: number;
 }
 
 const initialState: PostsState = {
   data: [],
   loading: false,
   error: null,
-  totalPostsCount: null,
-  limit: 1,
-  page: 2,
-  totalPagesCount: null,
+  totalPostsCount: 0,
+  limit: 10,
+  page: 1,
+  totalPagesCount: 1,
 };
 
 export const postsSlice = createSlice({
@@ -70,6 +71,8 @@ export const {
   fetchPostsSuccess,
   fetchPostsFailure,
   setTotalCount,
+  setTotalPagesCount,
+  setCurrentPage,
 } = postsSlice.actions;
 
 export default postsSlice.reducer;

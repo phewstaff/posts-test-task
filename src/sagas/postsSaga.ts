@@ -11,7 +11,6 @@ function* workGetPostsFetch(
   action: PayloadAction<number | null>
 ): Generator<unknown, void, AxiosResponse<IPost[]>> {
   const page = action.payload;
-  console.log(page);
   const response: AxiosResponse<IPost[]> = yield call(() =>
     axios.get<IPost[]>("https://jsonplaceholder.typicode.com/posts", {
       params: {
@@ -20,6 +19,7 @@ function* workGetPostsFetch(
       },
     })
   );
+
   const formattedPosts: IPost[] = response.data;
 
   yield delay(1500); // Fake delay of 1.5 seconds

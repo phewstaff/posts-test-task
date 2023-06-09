@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchPostsStart(page));
-  }, [dispatch]);
+  }, [dispatch, page]);
 
   return (
     <>
