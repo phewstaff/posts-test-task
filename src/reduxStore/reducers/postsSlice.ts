@@ -15,6 +15,8 @@ interface PostsState {
   totalPagesCount: number;
   limit: number;
   page: number;
+  searchQuery: string | null;
+  sortOrder: "asc" | "desc";
 }
 
 const initialState: PostsState = {
@@ -25,6 +27,8 @@ const initialState: PostsState = {
   limit: 10,
   page: 1,
   totalPagesCount: 1,
+  searchQuery: null,
+  sortOrder: "asc",
 };
 
 export const postsSlice = createSlice({
@@ -63,6 +67,14 @@ export const postsSlice = createSlice({
     setCurrentPage(state, action: PayloadAction<number>) {
       state.page = action.payload;
     },
+
+    setSearchQuery(state, action: PayloadAction<string | null>) {
+      state.searchQuery = action.payload;
+    },
+
+    setSortOrder(state, action: PayloadAction<"asc" | "desc">) {
+      state.sortOrder = action.payload;
+    },
   },
 });
 
@@ -73,6 +85,8 @@ export const {
   setTotalCount,
   setTotalPagesCount,
   setCurrentPage,
+  setSearchQuery,
+  setSortOrder,
 } = postsSlice.actions;
 
 export default postsSlice.reducer;
