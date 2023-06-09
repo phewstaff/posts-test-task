@@ -2,10 +2,10 @@ import axios, { AxiosResponse } from "axios";
 import { call, put, takeEvery, delay } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
 import {
-  IPost,
   fetchPostsSuccess,
   setTotalCount,
 } from "../reduxStore/reducers/postsSlice";
+import { IPost } from "../utils/types";
 
 function* workGetPostsFetch(
   action: PayloadAction<number | null>

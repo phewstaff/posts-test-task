@@ -1,6 +1,6 @@
 import AboutMePage from "./pages/AboutMePage";
 import PostsPage from "./pages/PostsPage";
-import SelectedPostPage from "./pages/SelectedPostPage";
+import SelectedPostPage from "./pages/SelectedUserPage";
 import { paths } from "./utils/const";
 
 export const routes = [

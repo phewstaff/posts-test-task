@@ -3,7 +3,15 @@ import { Offcanvas, Navbar, Nav, Container } from "react-bootstrap";
 import SearchBar from "../business/SearchBar";
 import SortSelector from "../business/SortSelector";
 
-const Header = () => {
+interface HeaderProps {
+  showSearchBar?: boolean;
+  showSortSelector?: boolean;
+}
+
+const Header = ({
+  showSearchBar = true,
+  showSortSelector = true,
+}: HeaderProps) => {
   const [showNavbar, setShowNavbar] = useState(false);
 
   const handleNavbarToggle = () => {
@@ -12,11 +20,11 @@ const Header = () => {
 
   return (
     <>
-      <Nav className="navbar bg-body-tertiary ">
+      <Nav className="navbar bg-body-tertiary">
         <Container className="flex-nowrap">
           <button
             onClick={handleNavbarToggle}
-            className="navbar-toggler "
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="/offcanvasNavbar"
@@ -26,8 +34,8 @@ const Header = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <SearchBar />
-          <SortSelector />
+          {showSearchBar && <SearchBar />}
+          {showSortSelector && <SortSelector />}
 
           <Offcanvas
             show={showNavbar}

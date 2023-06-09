@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap";
-import { IComment } from "../../reduxStore/reducers/commentsSlice";
+import { IComment } from "../../utils/types";
 
 type Props = {
   comment: IComment;

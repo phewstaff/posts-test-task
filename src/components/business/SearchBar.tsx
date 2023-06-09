@@ -1,5 +1,3 @@
-// SearchBar.tsx
-
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { CloseButton, Form } from "react-bootstrap";
@@ -20,7 +18,7 @@ const SearchBar = () => {
   };
 
   return (
-    <Form.Group className="d-flex align-items-center position-relative">
+    <Form.Group className="d-flex w-100 mx-3 align-items-center position-relative">
       <Form.Control
         type="text"
         placeholder="Search by post title"

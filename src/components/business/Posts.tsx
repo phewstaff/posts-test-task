@@ -3,10 +3,9 @@ import { Container, Spinner } from "react-bootstrap";
 import PostCard from "../ui/PostCard";
 import { useAppSelector } from "../../hooks/redux";
 import PostsPagination from "../ui/postsPagination";
+import { useNavigate } from "react-router";
 
-type Props = {};
-
-const Posts: FC = (props: Props) => {
+const Posts: FC = () => {
   const posts = useAppSelector((state) => state.posts.data);
   const loading = useAppSelector((state) => state.posts.loading);
   const searchQuery = useAppSelector((state) => state.posts.searchQuery);
@@ -17,6 +16,7 @@ const Posts: FC = (props: Props) => {
       !searchQuery ||
       post.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
   const sortedPosts = sortOrder
     ? filteredPosts.slice().sort((a, b) => {
         const titleA = a.title.toLowerCase();
@@ -35,7 +35,7 @@ const Posts: FC = (props: Props) => {
       {loading && <Spinner className=""></Spinner>}
       {posts &&
         sortedPosts.map((item) => {
-          return <PostCard post={item} key={item.id} />;
+          return <PostCard isSelectedCard={false} post={item} key={item.id} />;
         })}
     </Container>
   );

@@ -2,9 +2,8 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { postsSlice } from "./reducers/postsSlice";
 import createSagaMiddleware from "redux-saga";
 import { commentsSlice } from "./reducers/commentsSlice";
-
-// Import your reducers
-// import postsReducer from "./reducers/posts";
+import { selectedUserSlice } from "./reducers/selectedUserSlice";
+import { selectedUserPostsSlice } from "./reducers/selectedUserPostsSlice";
 
 export const saga = createSagaMiddleware();
 const middleware = [saga];
@@ -12,6 +11,8 @@ const middleware = [saga];
 const rootReducer = combineReducers({
   posts: postsSlice.reducer,
   comments: commentsSlice.reducer,
+  selctedUser: selectedUserSlice.reducer,
+  selectedUserPosts: selectedUserPostsSlice.reducer,
 });
 
 export const setupStore = () => {

@@ -1,13 +1,17 @@
 import { FC } from "react";
-import Layout from "../components/layout/Layout";
 import Posts from "../components/business/Posts";
+import Header from "../components/ui/Header";
 
 const PostsPage: FC = () => {
   return (
     <>
-      <Layout>
+      <header>
+        <Header />
+      </header>
+
+      <main>
         <Posts />
-      </Layout>
+      </main>
     </>
   );
 };

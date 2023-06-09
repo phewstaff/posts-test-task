@@ -1,12 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-export interface IComment {
-  id: number;
-  postId: number;
-  body: string;
-  email: string;
-  name: string;
-}
+import { IComment } from "../../utils/types";
 
 interface CommentsState {
   data: { [postId: number]: IComment[] };

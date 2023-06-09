@@ -1,12 +1,11 @@
 import { FC } from "react";
-import Layout from "../components/layout/Layout";
+import Header from "../components/ui/Header";
 
 const AboutMePage: FC = () => {
   return (
     <>
-      <Layout>
-        <div>AboutMePage</div>
-      </Layout>
+      <Header showSearchBar={false} showSortSelector={false} />
+      <main>AboutMePage</main>
     </>
   );
 };

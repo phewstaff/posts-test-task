@@ -1,10 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 import { call, put, takeEvery, delay } from "redux-saga/effects";
-import {
-  IComment,
-  fetchCommentsSuccess,
-} from "../reduxStore/reducers/commentsSlice";
+import { fetchCommentsSuccess } from "../reduxStore/reducers/commentsSlice";
 import { PayloadAction } from "@reduxjs/toolkit";
+import { IComment } from "../utils/types";
 
 function* workGetCommentsFetch(
   action: PayloadAction<number>

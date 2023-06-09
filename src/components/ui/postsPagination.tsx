@@ -3,10 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { MemoizedPageArray, getPageCount } from "../../utils/pages";
 import { setCurrentPage } from "../../reduxStore/reducers/postsSlice";
 
-type Props = {};
-
-const postsPagination = (props: Props) => {
-  const page = useAppSelector((state) => state.posts.page);
+const postsPagination = () => {
   const limit = useAppSelector((state) => state.posts.limit);
   const totalPostsCount = useAppSelector(
     (state) => state.posts.totalPostsCount
