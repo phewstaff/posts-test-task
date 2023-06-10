@@ -1,11 +1,9 @@
-// SortSelector.tsx
-
-import React from "react";
+import React, { FC } from "react";
 import { useDispatch } from "react-redux";
 import { Form } from "react-bootstrap";
 import { setSortOrder } from "../../reduxStore/reducers/postsSlice";
 
-const SortSelector = () => {
+const SortSelector: FC = () => {
   const dispatch = useDispatch();
 
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

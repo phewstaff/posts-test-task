@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Accordion, Spinner } from "react-bootstrap";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { fetchCommentsStart } from "../../reduxStore/reducers/commentsSlice";
 import Comment from "../ui/Comment";
+
+interface Props {
+  postId: number;
+}
 
 const useFetchComments = (postId: number, isAccordionOpen: boolean) => {
   const dispatch = useAppDispatch();
@@ -17,7 +21,7 @@ const useFetchComments = (postId: number, isAccordionOpen: boolean) => {
   return comments;
 };
 
-const Comments = ({ postId }: { postId: number }) => {
+const Comments: FC<Props> = ({ postId }) => {
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
   const comments = useFetchComments(postId, isAccordionOpen);
   const commentsLoading = useAppSelector((state) => state.comments.loading);

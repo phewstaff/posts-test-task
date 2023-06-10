@@ -1,11 +1,12 @@
 import { Card, Spinner } from "react-bootstrap";
 import { IComment } from "../../utils/types";
+import { FC } from "react";
 
 type Props = {
   comment: IComment;
 };
 
-const Comment = (props: Props) => {
+const Comment: FC<Props> = (props) => {
   return (
     <>
       <Card bg="light" border="secondary" className="text-capitalize my-3">

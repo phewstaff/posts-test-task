@@ -1,17 +1,25 @@
-import { useState } from "react";
-import { Offcanvas, Navbar, Nav, Container } from "react-bootstrap";
+import { FC, useState } from "react";
+import {
+  Offcanvas,
+  Navbar,
+  Nav,
+  Container,
+  Button,
+  Image,
+} from "react-bootstrap";
 import SearchBar from "../business/SearchBar";
 import SortSelector from "../business/SortSelector";
+import { userImage } from "../../assets/const";
 
-interface HeaderProps {
+type Props = {
   showSearchBar?: boolean;
   showSortSelector?: boolean;
-}
+};
 
-const Header = ({
+const Header: FC<Props> = ({
   showSearchBar = true,
   showSortSelector = true,
-}: HeaderProps) => {
+}) => {
   const [showNavbar, setShowNavbar] = useState(false);
 
   const handleNavbarToggle = () => {
@@ -43,15 +51,27 @@ const Header = ({
             placement="start"
           >
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Magomed</Offcanvas.Title>
-
-              <Offcanvas.Title>Naurbaev</Offcanvas.Title>
+              <Offcanvas.Title className="d-flex align-items-center">
+                <Image className="w-25" src={userImage} roundedCircle />
+                <div>
+                  <h1>Magomed Naurbaev</h1>
+                  <h6>naurbaev2020@yandex.ru</h6>
+                </div>
+              </Offcanvas.Title>
             </Offcanvas.Header>
 
             <Offcanvas.Body>
-              <Navbar>
-                <Nav.Link href="/posts">Home</Nav.Link>
-                <Nav.Link href="/about-me">About</Nav.Link>
+              <Navbar className="flex-column gap-3">
+                <Nav.Link href="/posts" className="w-75">
+                  <Button className="w-100" variant="light">
+                    Posts
+                  </Button>
+                </Nav.Link>
+                <Nav.Link className="w-75" href="/about-me">
+                  <Button className="w-100" variant="light">
+                    About me
+                  </Button>
+                </Nav.Link>
               </Navbar>
             </Offcanvas.Body>
           </Offcanvas>

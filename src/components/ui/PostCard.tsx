@@ -4,13 +4,14 @@ import { Col, Image } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { IPost } from "../../utils/types";
 import { userImage } from "../../assets/const";
+import { FC } from "react";
 
 type Props = {
   post: IPost;
   isSelectedCard?: boolean;
 };
 
-const PostCard = (props: Props) => {
+const PostCard: FC<Props> = (props) => {
   const navigate = useNavigate();
 
   const handleclick = () => {

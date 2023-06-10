@@ -1,18 +1,165 @@
+// Variables
+$primary-color: #20247b;
+$secondary-color: #fc5356;
+$text-color: #6f8ba4;
+$background-color: #f5f5f5;
+$box-shadow-color: rgba(0, 0, 0, 0.63);
+
+// Mixins
+@mixin gradient-background($start-color, $end-color) {
+  background-image: linear-gradient($start-color, $end-color);
+}
+
+// Styles
 .pointer {
   cursor: pointer;
 }
 
 .profile-card {
   margin-top: 20px;
+
+  .card-img-block {
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+
+    img {
+      border-radius: 5px;
+      box-shadow: 0 0 10px $box-shadow-color;
+    }
+  }
 }
 
-.profile-card .card-img-block {
-  width: 60%;
-  margin: 0 auto;
-  position: relative;
-  top: -20px;
+body {
+  color: $text-color;
+  margin-top: 20px;
+
+  .section {
+    padding: 100px 0;
+    position: relative;
+
+    .gray-bg {
+      background-color: $background-color;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    vertical-align: middle;
+    border-style: none;
+  }
 }
-.profile-card .card-img-block img {
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
+
+.about-text {
+  h3 {
+    font-size: 45px;
+    font-weight: 700;
+    margin: 0 0 6px;
+
+    @media (max-width: 767px) {
+      font-size: 35px;
+    }
+  }
+
+  h6 {
+    font-weight: 600;
+    margin-bottom: 15px;
+
+    @media (max-width: 767px) {
+      font-size: 18px;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    max-width: 450px;
+
+    mark {
+      font-weight: 600;
+      color: $primary-color;
+    }
+  }
+}
+
+.about-list {
+  padding-top: 10px;
+
+  .media {
+    padding: 5px 0;
+  }
+
+  label {
+    color: $primary-color;
+    font-weight: 600;
+    width: 88px;
+    margin: 0;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 11px;
+      width: 1px;
+      height: 12px;
+      background: $primary-color;
+      transform: rotate(15deg);
+      margin: auto;
+      opacity: 0.5;
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: 15px;
+  }
+}
+
+.about-avatar {
+  margin-top: 30px;
+}
+
+.about-section {
+  .counter {
+    padding: 22px 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+
+    .count-data {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .count {
+      font-weight: 700;
+      color: $primary-color;
+      margin: 0 0 5px;
+    }
+
+    p {
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+}
+
+mark {
+  @include gradient-background(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
+  background-size: 100% 3px;
+  background-repeat: no-repeat;
+  background-position: 0 bottom;
+  background-color: transparent;
+  padding: 0;
+  color: currentColor;
+}
+
+.theme-color {
+  color: $secondary-color;
+}
+
+.dark-color {
+  color: $primary-color;
 }

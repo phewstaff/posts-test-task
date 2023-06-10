@@ -1,11 +1,11 @@
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import { useParams } from "react-router";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { Spinner } from "react-bootstrap";
 import PostCard from "../ui/PostCard";
 import { fetchSelectedUserPostsStart } from "../../reduxStore/reducers/selectedUserPostsSlice";
 
-const SelectedUserPosts = () => {
+const SelectedUserPosts: FC = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
   const posts = useAppSelector((state) => state.selectedUserPosts.posts);

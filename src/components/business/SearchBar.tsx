@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { useDispatch } from "react-redux";
 import { CloseButton, Form } from "react-bootstrap";
 import { setSearchQuery } from "../../reduxStore/reducers/postsSlice";
 
-const SearchBar = () => {
+const SearchBar: FC = () => {
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState("");
 
