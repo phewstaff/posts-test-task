@@ -1,4 +1,7 @@
-Ключевые технологии, которые необходимо использовать
+## [Demo](https://posts-phewstaff.vercel.app/posts) 
+
+## Задание
+Ключевые технологии, которые необходимо использовать:
 
 React
 React-bootstrap
@@ -81,3 +84,24 @@ P.S:
 8. Верстка должна выглядеть хорошо для маленьких и больших экранов устройств.
 
 В результате выполнения задания задеплойте ваше SPA на хостинг (GitHub Pages / GitLab Pages / Heroku или прочие) и приложите ссылку на ваш удалённый репозиторий.
+
+This is React project bootstrapped with Vite
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+1. npm install
+2. npm run dev
+
+# or
+yarn dev
+
+# or
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
