@@ -17,7 +17,10 @@ export const selectedUserPostsSlice = createSlice({
   name: "selectedUserPosts",
   initialState,
   reducers: {
-    fetchSelectedUserPostsStart(state) {
+    fetchSelectedUserPostsStart(
+      state,
+      action: PayloadAction<string | undefined>
+    ) {
       state.loading = true;
       state.error = null;
     },

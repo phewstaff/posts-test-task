@@ -20,7 +20,7 @@ function* workFetchUser(
     );
     const user = response.data;
 
-    yield delay(1500); // Fake delay of 1.5 seconds
+    yield delay(500);
 
     yield put(fetchUserSuccess(user));
   } catch (error) {
@@ -34,15 +34,12 @@ function* workFetchPostsByUserId(
   try {
     const userId = action.payload;
     const response: AxiosResponse<any> = yield call(() =>
-      axios.get(`https://jsonplaceholder.typicode.com/posts`, {
-        params: {
-          userId: userId,
-        },
-      })
+      axios.get(`https://jsonplaceholder.typicode.com/user/${userId}/posts`)
     );
+
     const posts = response.data;
 
-    yield delay(1500); // Fake delay of 1.5 seconds
+    yield delay(500);
 
     yield put(fetchSelectedUserPostsSuccess(posts));
   } catch (error) {
@@ -53,7 +50,7 @@ function* workFetchPostsByUserId(
 function* selectedUserSaga() {
   yield takeEvery("user/fetchUserStart", workFetchUser);
   yield takeEvery(
-    "selectedUserPosts/fetchPostsByUserIdStart",
+    "selectedUserPosts/fetchSelectedUserPostsStart",
     workFetchPostsByUserId
   );
 }

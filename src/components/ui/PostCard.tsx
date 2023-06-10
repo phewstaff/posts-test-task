@@ -17,7 +17,7 @@ const PostCard = (props: Props) => {
     if (props.isSelectedCard) {
       return null;
     } else {
-      navigate(`/post/${props.post.userId}`);
+      navigate(`/user/${props.post.userId}`);
     }
   };
 
@@ -29,7 +29,7 @@ const PostCard = (props: Props) => {
             <Image
               onClick={handleclick}
               rounded
-              className="pointer"
+              className={`${!props.isSelectedCard && "pointer"}`}
               src={userImage}
               alt="avatar"
             />

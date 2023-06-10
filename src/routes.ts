@@ -1,6 +1,6 @@
 import AboutMePage from "./pages/AboutMePage";
 import PostsPage from "./pages/PostsPage";
-import SelectedPostPage from "./pages/SelectedUserPage";
+import SelectedUserPage from "./pages/SelectedUserPage";
 import { paths } from "./utils/const";
 
 export const routes = [
@@ -10,8 +10,8 @@ export const routes = [
   },
 
   {
-    path: paths.SELECTED_POST_ROUTE,
-    Component: SelectedPostPage,
+    path: paths.SELECTED_USER_ROUTE,
+    Component: SelectedUserPage,
   },
 
   {

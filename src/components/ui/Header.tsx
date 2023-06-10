@@ -43,7 +43,9 @@ const Header = ({
             placement="start"
           >
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Offcanvas Navbar</Offcanvas.Title>
+              <Offcanvas.Title>Magomed</Offcanvas.Title>
+
+              <Offcanvas.Title>Naurbaev</Offcanvas.Title>
             </Offcanvas.Header>
 
             <Offcanvas.Body>

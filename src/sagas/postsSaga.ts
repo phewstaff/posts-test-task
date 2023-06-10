@@ -1,32 +1,37 @@
 import axios, { AxiosResponse } from "axios";
 import { call, put, takeEvery, delay } from "redux-saga/effects";
-import { PayloadAction } from "@reduxjs/toolkit";
 import {
+  fetchPostsFailure,
   fetchPostsSuccess,
   setTotalCount,
 } from "../reduxStore/reducers/postsSlice";
 import { IPost } from "../utils/types";
+import { PayloadAction } from "@reduxjs/toolkit";
 
 function* workGetPostsFetch(
   action: PayloadAction<number | null>
 ): Generator<unknown, void, AxiosResponse<IPost[]>> {
   const page = action.payload;
-  const response: AxiosResponse<IPost[]> = yield call(() =>
-    axios.get<IPost[]>("https://jsonplaceholder.typicode.com/posts", {
-      params: {
-        _limit: 10,
-        _page: page,
-      },
-    })
-  );
+  try {
+    const response: AxiosResponse<IPost[]> = yield call(() =>
+      axios.get<IPost[]>("https://jsonplaceholder.typicode.com/posts", {
+        params: {
+          _limit: 10,
+          _page: page,
+        },
+      })
+    );
 
-  const formattedPosts: IPost[] = response.data;
+    const formattedPosts: IPost[] = response.data;
 
-  yield delay(1500); // Fake delay of 1.5 seconds
+    yield delay(500);
 
-  yield put(setTotalCount(response.headers["x-total-count"]));
+    yield put(setTotalCount(response.headers["x-total-count"]));
 
-  yield put(fetchPostsSuccess(formattedPosts));
+    yield put(fetchPostsSuccess(formattedPosts));
+  } catch (error) {
+    yield put(fetchPostsFailure("Failed to fetch posts:"));
+  }
 }
 
 function* postsSaga() {

@@ -1,13 +1,21 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { Container, Spinner } from "react-bootstrap";
 import PostCard from "../ui/PostCard";
-import { useAppSelector } from "../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import PostsPagination from "../ui/postsPagination";
-import { useNavigate } from "react-router";
+import { fetchPostsStart } from "../../reduxStore/reducers/postsSlice";
 
 const Posts: FC = () => {
+  const dispatch = useAppDispatch();
+  const page = useAppSelector((state) => state.posts.page);
+
+  useEffect(() => {
+    dispatch(fetchPostsStart(page));
+  }, [dispatch, page]);
+
   const posts = useAppSelector((state) => state.posts.data);
   const loading = useAppSelector((state) => state.posts.loading);
+  const error = useAppSelector((state) => state.posts.error);
   const searchQuery = useAppSelector((state) => state.posts.searchQuery);
   const sortOrder = useAppSelector((state) => state.posts.sortOrder);
 
@@ -32,7 +40,8 @@ const Posts: FC = () => {
   return (
     <Container className="d-flex min-vh-100 flex-column align-items-center mh-100 justify-content-center">
       {posts && <PostsPagination />}
-      {loading && <Spinner className=""></Spinner>}
+      {loading && <Spinner></Spinner>}
+      {error && <>{error}</>}
       {posts &&
         sortedPosts.map((item) => {
           return <PostCard isSelectedCard={false} post={item} key={item.id} />;

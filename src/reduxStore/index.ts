@@ -11,7 +11,7 @@ const middleware = [saga];
 const rootReducer = combineReducers({
   posts: postsSlice.reducer,
   comments: commentsSlice.reducer,
-  selctedUser: selectedUserSlice.reducer,
+  selectedUser: selectedUserSlice.reducer,
   selectedUserPosts: selectedUserPostsSlice.reducer,
 });
 
