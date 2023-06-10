@@ -1,3 +1,18 @@
 .pointer {
   cursor: pointer;
 }
+
+.profile-card {
+  margin-top: 20px;
+}
+
+.profile-card .card-img-block {
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+  top: -20px;
+}
+.profile-card .card-img-block img {
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
+}
