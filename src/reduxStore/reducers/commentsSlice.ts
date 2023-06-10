@@ -17,7 +17,7 @@ export const commentsSlice = createSlice({
   name: "comments",
   initialState,
   reducers: {
-    fetchCommentsStart(state, action: PayloadAction<number>) {
+    fetchCommentsStart(state, _action: PayloadAction<number>) {
       state.loading = true;
       state.error = null;
     },

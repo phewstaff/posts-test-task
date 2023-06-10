@@ -29,7 +29,7 @@ export const postsSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
-    fetchPostsStart(state, action: PayloadAction<number | null>) {
+    fetchPostsStart(state, _action: PayloadAction<number | null>) {
       state.loading = true;
       state.error = null;
     },

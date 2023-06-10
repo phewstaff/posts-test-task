@@ -19,7 +19,7 @@ export const selectedUserPostsSlice = createSlice({
   reducers: {
     fetchSelectedUserPostsStart(
       state,
-      action: PayloadAction<string | undefined>
+      _action: PayloadAction<string | undefined>
     ) {
       state.loading = true;
       state.error = null;

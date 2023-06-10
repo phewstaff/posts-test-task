@@ -17,7 +17,7 @@ export const selectedUserSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    fetchUserStart(state, action: PayloadAction<string | undefined>) {
+    fetchUserStart(state, _action: PayloadAction<string | undefined>) {
       state.loading = true;
       state.error = null;
     },
