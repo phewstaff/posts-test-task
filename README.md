@@ -90,9 +90,9 @@ P.S:
 
 This is React project bootstrapped with Vite
 
-## Getting Started
+## Запуск проекта
 
-First, run the development server:
+Для начала, установите модули и запустите проект командами:
 
 ```bash
 1. npm install
@@ -104,7 +104,3 @@ yarn dev
 # or
 pnpm dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
